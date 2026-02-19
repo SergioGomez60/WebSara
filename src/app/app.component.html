@@ -1,0 +1,49 @@
+<!-- Main Container with Fullscreen Background -->
+<main class="hero-container">
+  <!-- Background Image Layer -->
+  <div class="background-layer" [style.backgroundImage]="'url(' + backgroundImage + ')'"></div>
+
+  <!-- Dark Overlay for better text visibility -->
+  <div class="overlay"></div>
+
+  <!-- Top Navigation - Centered -->
+  <nav class="top-nav">
+    <ul class="nav-links-center">
+      @for (item of navItems; track item.label) {
+        <li>
+          <a [href]="item.href" class="nav-link-center">{{ item.label }}</a>
+        </li>
+      }
+    </ul>
+  </nav>
+
+  <!-- Hero Content -->
+  <section class="hero-content" id="home">
+    <div class="hero-center">
+      <img [src]="logoUrl" alt="WebSara Logo" class="hero-logo" (error)="logoUrl = 'assets/logo.png'">
+      <p class="hero-subtitle">Transformando espacios en experiencias únicas</p>
+    </div>
+  </section>
+</main>
+
+<!-- Sections for future content -->
+<section id="quienes-somos" class="page-section">
+  <div class="section-content">
+    <h2>Quiénes somos</h2>
+    <p>Próximamente...</p>
+  </div>
+</section>
+
+<section id="proyectos" class="page-section">
+  <div class="section-content">
+    <h2>Proyectos</h2>
+    <p>Próximamente...</p>
+  </div>
+</section>
+
+<section id="contacto" class="page-section">
+  <div class="section-content">
+    <h2>Contacto</h2>
+    <p>Próximamente...</p>
+  </div>
+</section>
