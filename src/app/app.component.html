@@ -7,7 +7,7 @@
   <div class="overlay"></div>
 
   <!-- Top Navigation - Centered -->
-  <nav class="top-nav">
+  <nav id="main-nav" class="top-nav">
     <ul class="nav-links-center">
       @for (item of navItems; track item.label) {
         <li>
@@ -27,10 +27,40 @@
 </main>
 
 <!-- Sections for future content -->
-<section id="quienes-somos" class="page-section">
-  <div class="section-content">
-    <h2>Quiénes somos</h2>
-    <p>Próximamente...</p>
+<section id="quienes-somos" class="about-section">
+  <div class="about-container">
+    <!-- Texto a la izquierda -->
+    <div class="about-text">
+      <h2 class="about-title">Quiénes Somos</h2>
+      <div class="about-divider"></div>
+      <p class="about-lead">
+        Somos la empresa líder en diseño de interiores en España, con más de <strong>1.000 proyectos realizados al año</strong>.
+      </p>
+      <p class="about-description">
+        Con más de dos décadas de experiencia, en WebSara transformamos espacios en experiencias únicas que reflejan la personalidad y estilo de cada cliente. Nuestro equipo de diseñadores interiores apasionados combina creatividad, funcionalidad y atención al detalle para crear ambientes que inspiran.
+      </p>
+      <p class="about-description">
+        Nos especializamos en proyectos residenciales, comerciales y de hospitality, siempre con un compromiso firme con la excelencia y la satisfacción del cliente. Cada proyecto es una oportunidad para superar expectativas y crear espacios memorables.
+      </p>
+    </div>
+
+    <!-- Carrusel a la derecha -->
+    <div class="about-carousel">
+      <div class="carousel-track" [style.transform]="'translateX(-' + (currentSlide * 100) + '%)'">
+        @for (image of carouselImages; track image.alt) {
+          <div class="carousel-slide">
+            <img [src]="image.url" [alt]="image.alt" class="carousel-image" (error)="handleImageError($event)">
+          </div>
+        }
+      </div>
+      <button class="carousel-btn prev" (click)="prevSlide()">&#10094;</button>
+      <button class="carousel-btn next" (click)="nextSlide()">&#10095;</button>
+      <div class="carousel-dots">
+        @for (image of carouselImages; track image.alt; let i = $index) {
+          <span class="dot" [class.active]="i === currentSlide" (click)="goToSlide(i)"></span>
+        }
+      </div>
+    </div>
   </div>
 </section>
 

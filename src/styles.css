@@ -77,3 +77,10 @@ button {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-secondary);
 }
+
+/* Navbar scroll */
+body.scrolled .top-nav,
+body.scrolled #main-nav,
+#main-nav.scrolled {
+  background: rgb(0, 0, 0) !important;
+}
